@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.alnod.buybloom.R
+import com.alnod.buybloom.ui.theme.newblue
 
 
 @Composable
@@ -54,7 +55,7 @@ fun HomeScreen(){
             text = "Choose your product",
             fontSize = 30.sp,
             fontWeight = FontWeight.ExtraBold,
-            color = Color.Magenta,
+            color = newblue,
             fontFamily = FontFamily.Default
         )
 
@@ -74,7 +75,7 @@ fun HomeScreen(){
             modifier = Modifier.height(50.dp)
                 .fillMaxWidth().padding(start = 20.dp, end = 20.dp),
             shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(Color.Magenta)
+            colors = ButtonDefaults.buttonColors(newblue)
 
         ) {
             Text(text = "Next")

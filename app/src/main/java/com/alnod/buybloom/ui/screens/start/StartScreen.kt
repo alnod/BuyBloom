@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.alnod.buybloom.R
+import com.alnod.buybloom.ui.theme.newblue
 
 @Composable
 fun StartScreen(){
@@ -97,7 +98,7 @@ fun StartScreen(){
             text = "SHOP.DISCOVER.TREND",
             fontSize = 30.sp,
             fontWeight = FontWeight.ExtraBold,
-            color = Color.Blue,
+            color = newblue,
             modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
         )
 
@@ -117,7 +118,7 @@ fun StartScreen(){
             modifier = Modifier.height(50.dp)
                 .fillMaxWidth().padding(start = 20.dp, end = 20.dp),
             shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(Color.Blue)
+            colors = ButtonDefaults.buttonColors(newblue)
 
         ) {
             Text(text = "Let's Get Started",
