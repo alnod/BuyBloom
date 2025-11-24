@@ -30,11 +30,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.alnod.buybloom.R
+import com.alnod.buybloom.navigation.ROUT_CATEGORY
 import com.alnod.buybloom.ui.theme.newblue
 
 @Composable
-fun StartScreen(){
+fun StartScreen(navController: NavController){
     //Main Layout
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -66,7 +69,7 @@ fun StartScreen(){
             Spacer(modifier = Modifier.width(20.dp))
 
             Image(
-                painterResource(id = R.drawable.product),
+                painterResource(id = R.drawable.walletsandwatches),
                 contentDescription = "product",
                 modifier = Modifier.size(width = 200.dp, height = 300.dp).clip(shape = RoundedCornerShape(10.dp)),
                 contentScale = ContentScale.FillHeight
@@ -75,7 +78,7 @@ fun StartScreen(){
             Spacer(modifier = Modifier.width(20.dp))
 
             Image(
-                    painterResource(id = R.drawable.product),
+                    painterResource(id = R.drawable.shoes),
             contentDescription = "product",
             modifier = Modifier.size(width = 200.dp, height = 300.dp).clip(shape = RoundedCornerShape(10.dp)),
             contentScale = ContentScale.FillHeight
@@ -84,7 +87,16 @@ fun StartScreen(){
             Spacer(modifier = Modifier.width(20.dp))
 
             Image(
-                painterResource(id = R.drawable.product),
+                painterResource(id = R.drawable.perfume),
+                contentDescription = "product",
+                modifier = Modifier.size(width = 200.dp, height = 300.dp).clip(shape = RoundedCornerShape(10.dp)),
+                contentScale = ContentScale.FillHeight
+            )
+
+            Spacer(modifier = Modifier.width(20.dp))
+
+            Image(
+                painterResource(id = R.drawable.clothes),
                 contentDescription = "product",
                 modifier = Modifier.size(width = 200.dp, height = 300.dp).clip(shape = RoundedCornerShape(10.dp)),
                 contentScale = ContentScale.FillHeight
@@ -114,7 +126,7 @@ fun StartScreen(){
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = {},
+            onClick = {navController.navigate(ROUT_CATEGORY)},
             modifier = Modifier.height(50.dp)
                 .fillMaxWidth().padding(start = 20.dp, end = 20.dp),
             shape = RoundedCornerShape(10.dp),
@@ -138,6 +150,6 @@ fun StartScreen(){
 @Preview(showBackground = true)
 @Composable
 fun StartScreenPreview(){
-    StartScreen()
+    StartScreen(rememberNavController())
 
 }

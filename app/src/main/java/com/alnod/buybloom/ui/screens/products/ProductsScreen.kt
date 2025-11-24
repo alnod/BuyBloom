@@ -35,13 +35,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.alnod.buybloom.R
 import com.alnod.buybloom.ui.screens.category.CategoryScreen
 import com.alnod.buybloom.ui.theme.newblue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProductsScreen(){
+fun ProductsScreen(navController: NavController){
 
 
     Column(
@@ -209,6 +211,6 @@ fun ProductsScreen(){
 @Preview(showBackground = true)
 @Composable
 fun ProductsScreenPreview(){
-    ProductsScreen()
+    ProductsScreen(rememberNavController())
 }
 

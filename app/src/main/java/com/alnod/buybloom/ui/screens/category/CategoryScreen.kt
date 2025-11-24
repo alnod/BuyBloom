@@ -37,6 +37,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -45,13 +46,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.alnod.buybloom.R
+import com.alnod.buybloom.navigation.ROUT_PRODUCTS
 import com.alnod.buybloom.ui.screens.about.AboutScreen
 import com.alnod.buybloom.ui.theme.newblue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CategoryScreen(){
+fun CategoryScreen(navController: NavController){
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -78,7 +82,7 @@ fun CategoryScreen(){
                     Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "Menu Icon",)
                 }
 
-                IconButton(onClick = {}) {
+                IconButton(onClick = { navController.navigate(ROUT_PRODUCTS)}) {
                     Icon(imageVector = Icons.Default.Info, contentDescription = "Menu Icon",)
                 }
 
@@ -122,14 +126,15 @@ fun CategoryScreen(){
 
         //Scrollable Column
         Column(
-            modifier = Modifier.verticalScroll(rememberScrollState())
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                .verticalScroll(rememberScrollState())
 
         ) {
             //Row
             Row() {
                 Image(painter = painterResource(id = R.drawable.animalprintshoes),
                     contentDescription = "product",
-                    modifier = Modifier.size(200.dp),
+                    modifier = Modifier.size(200.dp).clip(shape = RoundedCornerShape(10.dp)),
                     contentScale = ContentScale.Crop
 
                 )
@@ -141,6 +146,91 @@ fun CategoryScreen(){
                     Text(text = "ANIMAL PRINT LEATHER BOAT SHOES", fontSize = 20.sp, fontWeight = FontWeight.Bold)
                     Text(text = "Unisex", fontSize = 20.sp )
                     Text(text = "$ 400.00", fontSize = 15.sp)
+                    Row{
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                    }
+                    Button(
+                        onClick = {},
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.buttonColors(newblue)
+
+                    ) {
+                        Text(text = "Add To Cart")
+
+                    }
+                }
+
+            }
+
+
+            //End of Row
+
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+
+
+            //Row
+            Row() {
+                Image(painter = painterResource(id = R.drawable.quarterzipjumper),
+                    contentDescription = "product",
+                    modifier = Modifier.size(200.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.Crop
+
+                )
+
+                Spacer(modifier = Modifier.width(10.dp))
+
+
+                Column {
+                    Text(text = "QUARTER ZIP JUMPER", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    Text(text = "Men", fontSize = 20.sp )
+                    Text(text = "$ 71.00", fontSize = 15.sp)
+                    Row{
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
+                    }
+                    Button(
+                        onClick = {},
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.buttonColors(newblue)
+
+                    ) {
+                        Text(text = "Add To Cart")
+
+                    }
+                }
+
+            }
+
+
+            //End of Row
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            //Row
+            Row() {
+                Image(painter = painterResource(id = R.drawable.sunglasses),
+                    contentDescription = "product",
+                    modifier = Modifier.size(200.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.Crop
+
+                )
+
+                Spacer(modifier = Modifier.width(10.dp))
+
+
+                Column {
+                    Text(text = "RECTANGULAR LIMITED EDITION SUNGLASSES", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    Text(text = "Men", fontSize = 20.sp )
+                    Text(text = "$ 65.00", fontSize = 15.sp)
                     Row{
                         Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
                         Icon(imageVector = Icons.Default.Star, contentDescription = "shoe", tint = newblue)
@@ -186,5 +276,5 @@ fun CategoryScreen(){
 @Preview(showBackground = true)
 @Composable
 fun CategoryScreenPreview(){
-    CategoryScreen()
+    CategoryScreen(rememberNavController())
 }

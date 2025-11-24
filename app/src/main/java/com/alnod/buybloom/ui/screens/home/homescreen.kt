@@ -27,12 +27,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.alnod.buybloom.R
+import com.alnod.buybloom.navigation.ROUT_START
 import com.alnod.buybloom.ui.theme.newblue
 
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
 
     Column (
         modifier = Modifier.fillMaxSize(),
@@ -71,7 +74,7 @@ fun HomeScreen(){
 
 
         Button(
-            onClick = {},
+            onClick = {navController.navigate(ROUT_START)},
             modifier = Modifier.height(50.dp)
                 .fillMaxWidth().padding(start = 20.dp, end = 20.dp),
             shape = RoundedCornerShape(10.dp),
@@ -94,6 +97,6 @@ fun HomeScreen(){
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview(){
-    HomeScreen()
+    HomeScreen(rememberNavController())
 
 }
